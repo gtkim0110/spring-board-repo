@@ -40,8 +40,6 @@ public class ArticleService {
         return switch (searchType) {
             case TITLE -> articleRepository.findByTitleContaining(keyword,pageable).map(ArticleDto::from);
             case CONTENT -> articleRepository.findByContentContaining(keyword,pageable).map(ArticleDto::from);
-            case ID -> articleRepository.findByUserAccount_UserIdContaining(keyword,pageable).map(ArticleDto::from);
-            case NICKNAME -> articleRepository.findByUserAccount_NicknameContaining(keyword,pageable).map(ArticleDto::from);
         };
     }
 
